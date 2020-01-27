@@ -1,0 +1,15 @@
+{
+  "name": "javascript-tests",
+  "version": "1.0.0",
+  "description": "test javascript code submissions",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "zoraaver",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1"
+  }
+}
