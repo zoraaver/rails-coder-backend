@@ -10,6 +10,11 @@
   "license": "MIT",
   "dependencies": {
     "chai": "^4.2.0",
-    "mocha": "^7.0.1"
+    "fs": "0.0.1-security",
+    "jsdom": "^16.0.1",
+    "mocha": "^7.0.1",
+    "mocha-jsdom": "^2.0.0",
+    "mocha-spec-json-reporter": "0.0.2",
+    "path": "^0.12.7"
   }
 }

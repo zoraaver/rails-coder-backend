@@ -1,1 +1,73 @@
-{"version":"3.9.1","examples":[{"id":"./tests/ruby/spec/code_spec.rb[1:1]","description":"finds the factorial of 5","full_description":"factorial finds the factorial of 5","status":"failed","file_path":"./tests/ruby/spec/code_spec.rb","line_number":5,"run_time":0.018061,"pending_message":null,"exception":{"class":"RSpec::Expectations::ExpectationNotMetError","message":"\nexpected #<Integer:241> => 120\n     got #<Integer:3> => 1\n\nCompared using equal?, which compares object identity,\nbut expected and actual are not the same object. Use\n`expect(actual).to eq(expected)` if you don't care about\nobject identity in this example.\n\n","backtrace":["/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-support-3.9.2/lib/rspec/support.rb:97:in `block in <module:Support>'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-support-3.9.2/lib/rspec/support.rb:106:in `notify_failure'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/fail_with.rb:35:in `fail_with'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/handler.rb:38:in `handle_failure'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/handler.rb:50:in `block in handle_matcher'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/handler.rb:27:in `with_matcher'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/handler.rb:48:in `handle_matcher'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/expectation_target.rb:65:in `to'","/Users/zoraaver/Development/code/coder-backend/tests/ruby/spec/code_spec.rb:6:in `block (2 levels) in <top (required)>'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:257:in `instance_exec'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:257:in `block in run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:503:in `block in with_around_and_singleton_context_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:460:in `block in with_around_example_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/hooks.rb:472:in `block in run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/hooks.rb:610:in `run_around_example_hooks_for'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/hooks.rb:472:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:460:in `with_around_example_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:503:in `with_around_and_singleton_context_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:254:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example_group.rb:633:in `block in run_examples'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example_group.rb:629:in `map'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example_group.rb:629:in `run_examples'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example_group.rb:595:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:121:in `map'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/configuration.rb:2031:in `with_suite_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:116:in `block in run_specs'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/reporter.rb:74:in `report'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:115:in `run_specs'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:89:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:71:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:45:in `invoke'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/exe/rspec:4:in `<top (required)>'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/bin/rspec:23:in `load'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/bin/rspec:23:in `<main>'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/bin/ruby_executable_hooks:24:in `eval'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/bin/ruby_executable_hooks:24:in `<main>'"]}},{"id":"./tests/ruby/spec/code_spec.rb[1:2]","description":"finds the factorial of 0","full_description":"factorial finds the factorial of 0","status":"passed","file_path":"./tests/ruby/spec/code_spec.rb","line_number":8,"run_time":0.000104,"pending_message":null},{"id":"./tests/ruby/spec/code_spec.rb[2:1]","description":"returns 'HEY there!'","full_description":"helloWorld returns 'HEY there!'","status":"failed","file_path":"./tests/ruby/spec/code_spec.rb","line_number":14,"run_time":0.000854,"pending_message":null,"exception":{"class":"RSpec::Expectations::ExpectationNotMetError","message":"\nexpected: \"HEY there!\"\n     got: \"sdfds\"\n\n(compared using ==)\n","backtrace":["/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-support-3.9.2/lib/rspec/support.rb:97:in `block in <module:Support>'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-support-3.9.2/lib/rspec/support.rb:106:in `notify_failure'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/fail_with.rb:35:in `fail_with'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/handler.rb:38:in `handle_failure'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/handler.rb:50:in `block in handle_matcher'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/handler.rb:27:in `with_matcher'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/handler.rb:48:in `handle_matcher'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-expectations-3.9.0/lib/rspec/expectations/expectation_target.rb:65:in `to'","/Users/zoraaver/Development/code/coder-backend/tests/ruby/spec/code_spec.rb:15:in `block (2 levels) in <top (required)>'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:257:in `instance_exec'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:257:in `block in run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:503:in `block in with_around_and_singleton_context_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:460:in `block in with_around_example_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/hooks.rb:472:in `block in run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/hooks.rb:610:in `run_around_example_hooks_for'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/hooks.rb:472:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:460:in `with_around_example_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:503:in `with_around_and_singleton_context_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example.rb:254:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example_group.rb:633:in `block in run_examples'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example_group.rb:629:in `map'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example_group.rb:629:in `run_examples'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/example_group.rb:595:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:121:in `block (3 levels) in run_specs'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:121:in `map'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:121:in `block (2 levels) in run_specs'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/configuration.rb:2031:in `with_suite_hooks'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:116:in `block in run_specs'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/reporter.rb:74:in `report'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:115:in `run_specs'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:89:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:71:in `run'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/lib/rspec/core/runner.rb:45:in `invoke'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/gems/rspec-core-3.9.1/exe/rspec:4:in `<top (required)>'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/bin/rspec:23:in `load'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/bin/rspec:23:in `<main>'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/bin/ruby_executable_hooks:24:in `eval'","/Users/zoraaver/.rvm/gems/ruby-2.6.1/bin/ruby_executable_hooks:24:in `<main>'"]}}],"summary":{"duration":0.020543,"example_count":3,"failure_count":2,"pending_count":0,"errors_outside_of_examples_count":0},"summary_line":"3 examples, 2 failures"}
+{
+  "stats": {
+    "suites": 4,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-01-28T13:07:12.597Z",
+    "end": "2020-01-28T13:07:13.134Z",
+    "duration": 537
+  },
+  "tests": [
+    {
+      "title": "should return \"HEY there!\"",
+      "fullTitle": "#helloWorld should return \"HEY there!\"",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected 'HEY thre!' to equal 'HEY there!'",
+        "showDiff": true,
+        "actual": "HEY thre!",
+        "expected": "HEY there!",
+        "stack": "AssertionError: expected 'HEY thre!' to equal 'HEY there!'\n    at Context.<anonymous> (tests/javascript/test.js:11:16)\n    at processImmediate (internal/timers.js:439:21)"
+      }
+    },
+    {
+      "title": "should return -1 when the value is not present",
+      "fullTitle": "Array #indexOf() should return -1 when the value is not present",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return 720 given input 6",
+      "fullTitle": "#factorial should return 720 given input 6",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ],
+  "pending": [],
+  "failures": [
+    {
+      "title": "should return \"HEY there!\"",
+      "fullTitle": "#helloWorld should return \"HEY there!\"",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected 'HEY thre!' to equal 'HEY there!'",
+        "showDiff": true,
+        "actual": "HEY thre!",
+        "expected": "HEY there!",
+        "stack": "AssertionError: expected 'HEY thre!' to equal 'HEY there!'\n    at Context.<anonymous> (tests/javascript/test.js:11:16)\n    at processImmediate (internal/timers.js:439:21)"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "title": "should return -1 when the value is not present",
+      "fullTitle": "Array #indexOf() should return -1 when the value is not present",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should return 720 given input 6",
+      "fullTitle": "#factorial should return 720 given input 6",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ]
+}

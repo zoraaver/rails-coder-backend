@@ -4,12 +4,24 @@ class ApplicationController < ActionController::API
   end
 
   def run_test
-    File.open("tests/ruby/code.rb", "w") do |f|
-      f.puts(params[:code])
+    case params[:language]
+
+    when "ruby"
+      File.open("tests/ruby/code.rb", "w") do |f|
+        f.puts(params[:code])
+      end
+      system("rspec tests/ruby/spec --format json --out app/controllers/results.json")
+
+    when "javascript"
+      File.open("tests/javascript/code.js", "w") do |f|
+        f.puts(params[:code])
+      end
+      system("mocha tests/javascript -R json > app/controllers/results.json")
+
+    else
+      render json: {message: "invalid language"}
     end
-    system("rspec tests/ruby/spec --format json --out app/controllers/results.json")
-    data = File.read( 'app/controllers/results.json')
-    render json: data
+    render json: File.read( 'app/controllers/results.json')
 
   end
 
