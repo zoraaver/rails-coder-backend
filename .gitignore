@@ -24,7 +24,3 @@
 #ignore node_modules
 tests/javascript/node_modules
 
-#ignore test files and results from users
-code.rb
-code.js
-results.json
