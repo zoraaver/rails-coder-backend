@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get "/test", to: "application#test"
+  resources :users, only: [:create, :update, :destroy]
+  get "/validate", to: "users#validate"
+  post "/login", to: "users#login"
   post "/test", to: "application#run_test"
 end
