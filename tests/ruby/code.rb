@@ -1,7 +1,7 @@
-function factorial(n) {
-    return n == 1? 1 : n*factorial(n - 1)
-}
+def factorial(n)
+	n == 0 ? 1 : n*factorial(n - 1)
+end
 
-function helloWorld() {
-    return "HEY there"
-}
+def helloWorld
+	"HEY there!"
+end

@@ -23,3 +23,8 @@
 
 #ignore node_modules
 tests/javascript/node_modules
+
+#ignore test files and results from users
+./tests/ruby/code.rb
+./tests/javascript/code.js
+./app/controllers/results.json

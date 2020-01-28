@@ -3,5 +3,5 @@ function factorial(n) {
 }
 
 function helloWorld() {
-    return "HEY thre!"
+    return "HEY there!"
 }
