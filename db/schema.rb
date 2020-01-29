@@ -25,34 +25,29 @@ ActiveRecord::Schema.define(version: 2020_01_29_095728) do
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.string "content"
+    t.integer "subsection_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sections", force: :cascade do |t|
     t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "course_id"
   end
 
   create_table "subsections", force: :cascade do |t|
     t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "section_id"
   end
 
   create_table "user_courses", force: :cascade do |t|
     t.integer "user_id"
     t.integer "course_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_lessons", force: :cascade do |t|
     t.integer "lesson_id"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
