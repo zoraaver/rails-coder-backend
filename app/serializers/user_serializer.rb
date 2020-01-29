@@ -1,3 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :email, :token
+  has_many :courses
+  attributes :email, :token, :courses
 end
