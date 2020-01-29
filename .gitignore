@@ -24,3 +24,5 @@
 #ignore node_modules
 tests/javascript/node_modules
 
+#ignore temporary vim files
+*.swp
