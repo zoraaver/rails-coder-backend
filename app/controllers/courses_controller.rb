@@ -1,4 +1,7 @@
 class CoursesController < ApplicationController
+
+  before_action :require_login
+
   def index
     courses = Course.all
     render json: courses.map{ |c| {id: c.id, title: c.title, description: c.description, img_url: c.img_url} }
