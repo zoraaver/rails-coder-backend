@@ -1,4 +1,8 @@
 class UserSerializer < ActiveModel::Serializer
-  has_many :courses
   attributes :email, :token, :courses
+
+  def courses
+    object.courses.map{|c| {id: c.id, title: c.title, description: c.description, img_url: c.img_url}}
+  end
+
 end

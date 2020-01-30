@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def validate
     if logged_in?
-      render json: @current_user, scope: {user: @current_user}
+      render json: @current_user
     else
       render json: {message: "You done somethin wrong boy!"}, status: :unauthorized
     end 
