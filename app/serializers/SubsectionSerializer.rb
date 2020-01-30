@@ -1,4 +1,7 @@
 class SubsectionSerializer < ActiveModel::Serializer
-  has_many :lessons
-  attributes :id, :title
+  attributes :id, :title, :lessons
+
+  def lessons
+    object.lessons.map{|l| LessonSerializer.new(l, scope: @instance_options[:scope])}
+  end
 end
