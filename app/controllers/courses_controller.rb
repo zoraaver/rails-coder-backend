@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
 
   def show
     course = Course.find(params[:id])
+    UserCourse.find_by(course: course, user: @current_user) || UserCourse.create(user: @current_user, course: course)
     render json: course, scope: {user: @current_user}
   end
 end

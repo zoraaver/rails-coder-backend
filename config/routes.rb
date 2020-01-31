@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :lessons, only: [:show]
   get "/validate", to: "users#validate"
   post "/login", to: "users#login"
-  post "/test", to: "application#run_test"
+  post "/test", to: "test#run_test"
 end

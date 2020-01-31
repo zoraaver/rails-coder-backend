@@ -8,6 +8,7 @@ class Lesson < ApplicationRecord
     if user_lesson
       return user_lesson.status
     end
-    return 2
+    return 0
   end
+
 end
