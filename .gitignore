@@ -26,3 +26,4 @@ tests/javascript/node_modules
 
 #ignore temporary vim files
 *.swp
+app/controllers/results.json
