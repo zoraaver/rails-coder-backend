@@ -33,6 +33,17 @@ class TestController < ApplicationController
 
       system("mocha tests/javascript -R json > app/controllers/results.json")
 
+    when "cpp"
+
+      File.open("tests/cpp/code.cpp", "w") do |f|
+        f.puts(params[:code])
+      end
+
+      File.open("tests/cpp/test.cpp", "w") do |f|
+          f.puts(lesson.test)
+        end
+      system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -o tests/cpp/test.o")
+      system("./tests/cpp/test.o --gtest_output='json:app/controllers/results.json'")
     else
       render json: {message: "invalid language"}
     end
