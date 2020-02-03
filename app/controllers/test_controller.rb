@@ -1,4 +1,5 @@
 class TestController < ApplicationController
+  before_action :require_login
   def run_test
     
     lesson = Lesson.find(params[:id])
