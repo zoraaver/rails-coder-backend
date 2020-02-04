@@ -8,6 +8,8 @@ class TestController < ApplicationController
     
     user_lesson.update(code: params[:code])
 
+    passed = false
+
     case params[:language]
 
     when "ruby"
@@ -20,7 +22,7 @@ class TestController < ApplicationController
         f.puts(lesson.test)
       end 
 
-      system("rspec tests/ruby/spec --format json --out app/controllers/results.json")
+      passed = system("rspec tests/ruby/spec --format json --out app/controllers/results.json")
 
     when "javascript"
 
@@ -32,7 +34,7 @@ class TestController < ApplicationController
         f.puts(lesson.test)
       end 
 
-      system("mocha tests/javascript -R json > app/controllers/results.json")
+      passed = system("mocha tests/javascript -R json > app/controllers/results.json")
 
     when "cpp"
 
@@ -48,6 +50,8 @@ class TestController < ApplicationController
     else
       render json: {message: "invalid language"}
     end
+
+    user_lesson.update(status: 2) if passed;
     render json: File.read( 'app/controllers/results.json')
 
   end
