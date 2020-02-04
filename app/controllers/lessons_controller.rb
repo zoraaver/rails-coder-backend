@@ -11,9 +11,9 @@ class LessonsController < ApplicationController
       test: !!lesson.test, 
       starter_code: lesson.starter_code, 
       code: code,
+      content: lesson.content,
       id: lesson.id, title: lesson.title, 
-      language: lesson.language,
-      paragraphs: lesson.paragraphs.map{|p| ParagraphSerializer.new(p)}
+      language: lesson.language
     }
 
   end
