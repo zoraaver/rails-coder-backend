@@ -33,3 +33,5 @@ tests/javascript/test.js
 tests/javascript/code.js
 tests/cpp/test.cpp
 tests/cpp/test.o
+tests/ruby/code.rb
+tests/ruby/spec/code_spec.rb
