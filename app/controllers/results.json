@@ -1,1 +1,85 @@
-{"version":"3.9.1","examples":[{"id":"./tests/ruby/spec/code_spec.rb[1:1]","description":"returns 'hello world!'","full_description":"helloWorld returns 'hello world!'","status":"passed","file_path":"./tests/ruby/spec/code_spec.rb","line_number":5,"run_time":0.000638,"pending_message":null}],"summary":{"duration":0.001652,"example_count":1,"failure_count":0,"pending_count":0,"errors_outside_of_examples_count":0},"summary_line":"1 example, 0 failures"}
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2020-02-04T12:54:36.852Z",
+    "end": "2020-02-04T12:54:37.331Z",
+    "duration": 479
+  },
+  "tests": [
+    {
+      "title": "should return an array of the sorted partial sums for positive numbers",
+      "fullTitle": "#ascendingSum should return an array of the sorted partial sums for positive numbers",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should also work for negative numbers",
+      "fullTitle": "#ascendingSum should also work for negative numbers",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [ 1, 3, 6, 10 ] to deeply equal [ -1, -1, 1, 111 ]",
+        "showDiff": true,
+        "actual": "[\n  1\n  3\n  6\n  10\n]",
+        "expected": "[\n  -1\n  -1\n  1\n  111\n]",
+        "stack": "AssertionError: expected [ 1, 3, 6, 10 ] to deeply equal [ -1, -1, 1, 111 ]\n    at Context.<anonymous> (tests/javascript/test.js:14:52)\n    at processImmediate (internal/timers.js:439:21)"
+      }
+    },
+    {
+      "title": "should allow for non-integer values",
+      "fullTitle": "#ascendingSum should allow for non-integer values",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [ 1, 3, 6, 10 ] to deeply equal [ -2.3, -1.2, 1, 1, 6.55 ]",
+        "showDiff": true,
+        "actual": "[\n  1\n  3\n  6\n  10\n]",
+        "expected": "[\n  -2.3\n  -1.2\n  1\n  1\n  6.55\n]",
+        "stack": "AssertionError: expected [ 1, 3, 6, 10 ] to deeply equal [ -2.3, -1.2, 1, 1, 6.55 ]\n    at Context.<anonymous> (tests/javascript/test.js:18:58)\n    at processImmediate (internal/timers.js:439:21)"
+      }
+    }
+  ],
+  "pending": [],
+  "failures": [
+    {
+      "title": "should also work for negative numbers",
+      "fullTitle": "#ascendingSum should also work for negative numbers",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [ 1, 3, 6, 10 ] to deeply equal [ -1, -1, 1, 111 ]",
+        "showDiff": true,
+        "actual": "[\n  1\n  3\n  6\n  10\n]",
+        "expected": "[\n  -1\n  -1\n  1\n  111\n]",
+        "stack": "AssertionError: expected [ 1, 3, 6, 10 ] to deeply equal [ -1, -1, 1, 111 ]\n    at Context.<anonymous> (tests/javascript/test.js:14:52)\n    at processImmediate (internal/timers.js:439:21)"
+      }
+    },
+    {
+      "title": "should allow for non-integer values",
+      "fullTitle": "#ascendingSum should allow for non-integer values",
+      "duration": 0,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [ 1, 3, 6, 10 ] to deeply equal [ -2.3, -1.2, 1, 1, 6.55 ]",
+        "showDiff": true,
+        "actual": "[\n  1\n  3\n  6\n  10\n]",
+        "expected": "[\n  -2.3\n  -1.2\n  1\n  1\n  6.55\n]",
+        "stack": "AssertionError: expected [ 1, 3, 6, 10 ] to deeply equal [ -2.3, -1.2, 1, 1, 6.55 ]\n    at Context.<anonymous> (tests/javascript/test.js:18:58)\n    at processImmediate (internal/timers.js:439:21)"
+      }
+    }
+  ],
+  "passes": [
+    {
+      "title": "should return an array of the sorted partial sums for positive numbers",
+      "fullTitle": "#ascendingSum should return an array of the sorted partial sums for positive numbers",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ]
+}

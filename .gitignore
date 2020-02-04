@@ -26,6 +26,7 @@ tests/javascript/node_modules
 
 #ignore temporary vim files
 *.swp
-/tests
+tests/javascript/test.js
+tests/javascript/code.js
 tests/cpp/test.cpp
 tests/cpp/test.o
