@@ -36,3 +36,4 @@ tests/cpp/test.o
 tests/cpp/code.cpp
 tests/ruby/code.rb
 tests/ruby/spec/code_spec.rb
+errors.txt

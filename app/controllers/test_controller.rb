@@ -44,7 +44,8 @@ class TestController < ApplicationController
 
       File.open("tests/cpp/test.cpp", "w") do |f|
           f.puts(lesson.test)
-        end
+      end
+
       compiled = system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -o tests/cpp/test.o &> errors.txt")
 
       if !compiled 
@@ -52,12 +53,12 @@ class TestController < ApplicationController
         return;
       end
 
-      system("./tests/cpp/test.o --gtest_output='json:app/controllers/results.json'")
+      passed = system("./tests/cpp/test.o --gtest_output='json:app/controllers/results.json'")
     else
       render json: {message: "invalid language"}
     end
 
-    user_lesson.update(status: 2) if passed;
+    user_lesson.update(status: 2) if passed && user_lesson.status != 2;
     render json: File.read( 'app/controllers/results.json')
 
   end
