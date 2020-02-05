@@ -45,7 +45,13 @@ class TestController < ApplicationController
       File.open("tests/cpp/test.cpp", "w") do |f|
           f.puts(lesson.test)
         end
-      system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -o tests/cpp/test.o")
+      compiled = system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -o tests/cpp/test.o &> errors.txt")
+
+      if !compiled 
+        render json: {compiler_message: File.read("errors.txt")}, status: :not_acceptable
+        return;
+      end
+
       system("./tests/cpp/test.o --gtest_output='json:app/controllers/results.json'")
     else
       render json: {message: "invalid language"}
