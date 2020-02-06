@@ -13,4 +13,24 @@ class Subsection < ApplicationRecord
       return 1
     end
   end
+
+  def next_subsection
+    subsection = section.subsections.where("sort_id > ?", self.sort_id).order(sort_id: :asc).first
+    if !subsection
+      next_section = section.next_section
+      return nil if !next_section
+      subsection = next_section.subsections.order(sort_id: :asc).first
+    end
+    subsection
+  end
+
+  def previous_subsection
+    subsection = section.subsections.where("sort_id < ?", self.sort_id).order(sort_id: :desc).first
+    if !subsection
+      previous_section = section.previous_section
+      return nil if !previous_section
+      subsection = previous_section.subsections.order(sort_id: :desc).first
+    end
+    subsection
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_100317) do
+ActiveRecord::Schema.define(version: 2020_02_06_145205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,16 +32,22 @@ ActiveRecord::Schema.define(version: 2020_02_04_100317) do
     t.text "starter_code"
     t.string "language"
     t.text "content"
+    t.integer "sort_id", default: 0
+    t.index ["sort_id"], name: "index_lessons_on_sort_id"
   end
 
   create_table "sections", force: :cascade do |t|
     t.string "title"
     t.integer "course_id"
+    t.integer "sort_id", default: 0
+    t.index ["sort_id"], name: "index_sections_on_sort_id"
   end
 
   create_table "subsections", force: :cascade do |t|
     t.string "title"
     t.integer "section_id"
+    t.integer "sort_id", default: 0
+    t.index ["sort_id"], name: "index_subsections_on_sort_id"
   end
 
   create_table "user_courses", force: :cascade do |t|

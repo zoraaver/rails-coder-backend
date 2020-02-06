@@ -15,4 +15,12 @@ class Section < ApplicationRecord
       return 1
     end
   end
+
+  def next_section
+    course.sections.where("sort_id > ?", self.sort_id).order(sort_id: :asc).first
+  end
+
+  def previous_section
+    course.sections.where("sort_id < ?", self.sort_id).order(sort_id: :desc).first
+  end
 end

@@ -13,7 +13,9 @@ class LessonsController < ApplicationController
       code: user_lesson.code,
       content: lesson.content,
       id: lesson.id, title: lesson.title, 
-      language: lesson.language
+      language: lesson.language,
+      nextLesson: lesson.next_lesson,
+      previousLesson: lesson.previous_lesson
     }
 
   end
