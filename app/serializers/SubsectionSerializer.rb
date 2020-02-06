@@ -2,7 +2,7 @@ class SubsectionSerializer < ActiveModel::Serializer
   attributes :id, :title, :lessons, :completed
 
   def lessons
-    object.lessons.map{|l| LessonSerializer.new(l, scope: @instance_options[:scope])}
+    object.lessons.order(sort_id: :asc).map{|l| LessonSerializer.new(l, scope: @instance_options[:scope])}
   end
 
   def completed

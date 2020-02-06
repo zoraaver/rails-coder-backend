@@ -34,7 +34,7 @@ class TestController < ApplicationController
         f.puts(lesson.test)
       end 
 
-      passed = system("mocha tests/javascript -R json > app/controllers/results.json")
+      passed = system("mocha tests/javascript -R json 1> app/controllers/results.json 2> errors.txt")
 
     when "cpp"
 
@@ -48,18 +48,16 @@ class TestController < ApplicationController
 
       compiled = system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -o tests/cpp/test.o &> errors.txt")
 
-      if !compiled 
-        render json: {compiler_message: File.read("errors.txt")}, status: :not_acceptable
-        return;
+      if compiled 
+        passed = system("./tests/cpp/test.o --gtest_output='json:app/controllers/results.json'")
       end
 
-      passed = system("./tests/cpp/test.o --gtest_output='json:app/controllers/results.json'")
     else
       render json: {message: "invalid language"}
     end
 
     user_lesson.update(status: 2) if passed && user_lesson.status != 2;
-    render json: File.read( 'app/controllers/results.json')
+    render json: {results: File.read( 'app/controllers/results.json'), error: File.read("errors.txt")}
 
   end
 end
