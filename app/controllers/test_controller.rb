@@ -3,6 +3,7 @@ class TestController < ApplicationController
   def run_test
     
     lesson = Lesson.find(params[:id])
+    File.open("errors.txt", "w")
 
     user_lesson = lesson.user_lessons.find_by(user: @current_user) 
     
@@ -58,6 +59,7 @@ class TestController < ApplicationController
 
     user_lesson.update(status: 2) if passed && user_lesson.status != 2;
     render json: {results: File.read( 'app/controllers/results.json'), error: File.read("errors.txt")}
+    File.delete("errors.txt");
 
   end
 end
