@@ -1,3 +1,4 @@
 libc6-dev
 g++
 build-essential
+libstdc++-4.8-dev
