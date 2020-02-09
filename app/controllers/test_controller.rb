@@ -4,6 +4,7 @@ class TestController < ApplicationController
     
     lesson = Lesson.find(params[:id])
     File.open("errors.txt", "w")
+    File.open("results.json", "w")
 
     user_lesson = lesson.user_lessons.find_by(user: @current_user) 
     
@@ -23,7 +24,7 @@ class TestController < ApplicationController
         f.puts(lesson.test)
       end 
 
-      passed = system("rspec tests/ruby/spec --format json --out app/controllers/results.json")
+      passed = system("rspec tests/ruby/spec --format json --out results.json")
 
     when "javascript"
 
@@ -35,7 +36,7 @@ class TestController < ApplicationController
         f.puts(lesson.test)
       end 
 
-      passed = system("mocha tests/javascript -R json 1> app/controllers/results.json 2> errors.txt")
+      passed = system("mocha tests/javascript -R json 1> results.json 2> errors.txt")
 
     when "cpp"
 
@@ -50,7 +51,7 @@ class TestController < ApplicationController
       compiled = system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -o tests/cpp/test.o &> errors.txt")
 
       if compiled 
-        passed = system("./tests/cpp/test.o --gtest_output='json:app/controllers/results.json'")
+        passed = system("./tests/cpp/test.o --gtest_output='json:results.json'")
       end
 
     else
@@ -58,8 +59,10 @@ class TestController < ApplicationController
     end
 
     user_lesson.update(status: 2) if passed && user_lesson.status != 2;
-    render json: {results: File.read( 'app/controllers/results.json'), error: File.read("errors.txt")}
-    File.delete("errors.txt");
+    render json: {results: File.read( 'results.json'), error: File.read("errors.txt")}
+
+    File.delete("errors.txt")
+    File.delete("results.json")
 
   end
 end
