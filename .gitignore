@@ -22,7 +22,8 @@
 /config/master.key
 
 #ignore node_modules
-tests/javascript/node_modules
+node_modules
+package-lock.json
 
 #ignore temporary vim files
 *.swp

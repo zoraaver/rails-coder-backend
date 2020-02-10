@@ -48,7 +48,7 @@ class TestController < ApplicationController
           f.puts(lesson.test)
       end
 
-      compiled = system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -pthread -o tests/cpp/test.o &> errors.txt")
+      compiled = system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -pthread -o tests/cpp/test.o 2> errors.txt")
 
       if compiled 
         passed = system("./tests/cpp/test.o")
