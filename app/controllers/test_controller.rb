@@ -51,7 +51,7 @@ class TestController < ApplicationController
       compiled = system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -pthread -o tests/cpp/test.o 2> errors.txt")
 
       if compiled 
-        passed = system("./tests/cpp/test.o")
+        passed = system("./tests/cpp/test.o --gtest_output='json:results.json'")
       end
 
     else
