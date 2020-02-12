@@ -2,6 +2,7 @@ class Section < ApplicationRecord
   belongs_to :course
   has_many :subsections
   has_many :lessons, through: :subsections
+  validates :title, presence: true
 
 
   def completed?(user)
