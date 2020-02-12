@@ -4,7 +4,11 @@ class SectionsController < ApplicationController
 
   def create
     last_sort_id = Course.find(section_params[:course_id]).sections.order(:sort_id).pluck(:sort_id).last
-    section = Section.create(title: section_params[:title], sort_id: last_sort_id + 1 || 0, course_id: section_params[:course_id])
+    section = Section.create(
+      title: section_params[:title], 
+      sort_id: (last_sort_id && last_sort_id + 1) || 0, 
+      course_id: section_params[:course_id]
+    )
 
     if section.valid?
       render json: section, scope: {user: @current_user}
