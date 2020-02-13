@@ -1,6 +1,6 @@
 class Lesson < ApplicationRecord
   belongs_to :subsection
-  has_many :user_lessons
+  has_many :user_lessons, dependent: :destroy
 
   def completed?(user)
     user_lesson = self.user_lessons.find_by(user_id: user.id)
