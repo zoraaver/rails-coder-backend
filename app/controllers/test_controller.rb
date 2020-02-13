@@ -8,11 +8,24 @@ class TestController < ApplicationController
     "javascript" => ".js"
   }
 
+  @@forbidden_words = {
+    "cpp" => ["include", "define", "system", "FILE", "fstream", "fopen", "cin"],
+    "ruby" => ["system", "File", "gets", "IO", "Dir", "Kernel", "require"],
+    "javascript" => ["require", "import"]
+  }
+
   def run_test
     unique_id = @current_user.id
     lesson = Lesson.find(params[:id])
+    
     File.open("#{unique_id}errors.txt", "w")
     File.open("#{unique_id}results.json", "w")
+
+    if params[:code] =~ Regexp.union(@@forbidden_words[lesson.language])
+      render json: {error: "Invalid submission", results: ""}
+      return
+    end
+    
 
     user_lesson = lesson.user_lessons.find_by(user: @current_user) 
 
