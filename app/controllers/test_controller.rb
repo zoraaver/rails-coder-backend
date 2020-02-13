@@ -1,57 +1,47 @@
 class TestController < ApplicationController
+
   before_action :require_login
+
+  @@extensions = {
+    "cpp" => ".cpp",
+    "ruby" => ".rb",
+    "javascript" => ".js"
+  }
+
   def run_test
-    
+    unique_id = @current_user.id
     lesson = Lesson.find(params[:id])
-    File.open("errors.txt", "w")
-    File.open("results.json", "w")
+    File.open("#{unique_id}errors.txt", "w")
+    File.open("#{unique_id}results.json", "w")
 
     user_lesson = lesson.user_lessons.find_by(user: @current_user) 
-    
+
     user_lesson.update(code: params[:code])
 
+    test = lesson.test.gsub("code#{@@extensions[lesson.language]}", "code#{unique_id.to_s + @@extensions[lesson.language]}")
+
     passed = false
+
+    File.open("tests/#{lesson.language}/code#{unique_id.to_s + @@extensions[lesson.language]}", "w") do |f|
+      f.puts(params[:code])
+    end
+
+    File.open("tests/#{lesson.language}/test#{unique_id.to_s + @@extensions[lesson.language]}", "w") do |f|  
+      f.puts(test)
+    end 
 
     case params[:language]
 
     when "ruby"
-
-      File.open("tests/ruby/code.rb", "w") do |f|
-        f.puts(params[:code])
-      end
-
-      File.open("tests/ruby/spec/code_spec.rb", "w") do |f|  
-        f.puts(lesson.test)
-      end 
-
-      passed = system("rspec tests/ruby/spec --format json --out results.json")
-
+      passed = system("rspec tests/ruby/test#{unique_id}.rb --format json --out #{unique_id}results.json")
     when "javascript"
-
-      File.open("tests/javascript/code.js", "w") do |f|
-        f.puts(params[:code])
-      end
-
-      File.open("tests/javascript/test.js", "w") do |f|  
-        f.puts(lesson.test)
-      end 
-
-      passed = system("mocha tests/javascript -R json 1> results.json 2> errors.txt")
-
+      passed = system("mocha tests/javascript -R json 1> #{unique_id}results.json 2> #{unique_id}errors.txt")
     when "cpp"
-
-      File.open("tests/cpp/code.cpp", "w") do |f|
-        f.puts(params[:code])
-      end
-
-      File.open("tests/cpp/test.cpp", "w") do |f|
-          f.puts(lesson.test)
-      end
-
-      compiled = system("g++ tests/cpp/test.cpp -std=c++11 -lgtest -pthread -o tests/cpp/test.o 2> errors.txt")
+      compiled = system("g++ tests/cpp/test#{unique_id}.cpp -std=c++11 -lgtest -pthread -o tests/cpp/test#{unique_id}.o 2> #{unique_id}errors.txt")
 
       if compiled 
-        passed = system("./tests/cpp/test.o --gtest_output='json:results.json'")
+        passed = system("./tests/cpp/test#{unique_id}.o --gtest_output='json:#{unique_id}results.json'")
+        File.delete("tests/cpp/test#{unique_id}.o")
       end
 
     else
@@ -59,10 +49,12 @@ class TestController < ApplicationController
     end
 
     user_lesson.update(status: 2) if passed && user_lesson.status != 2;
-    render json: {results: File.read( 'results.json'), error: File.read("errors.txt")}
+    render json: {results: File.read( "#{unique_id}results.json"), error: File.read("#{unique_id}errors.txt")}
 
-    File.delete("errors.txt")
-    File.delete("results.json")
+    File.delete("tests/#{lesson.language}/test#{unique_id.to_s + @@extensions[lesson.language]}")
+    File.delete("#{unique_id}errors.txt")
+    File.delete("#{unique_id}results.json")
+    File.delete("tests/#{lesson.language}/code#{unique_id.to_s + @@extensions[lesson.language]}")
 
   end
 end
