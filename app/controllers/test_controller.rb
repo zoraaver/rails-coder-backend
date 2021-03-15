@@ -48,9 +48,9 @@ class TestController < ApplicationController
     when "ruby"
       passed = system("rspec tests/ruby/test#{unique_id}.rb --format json --out #{unique_id}results.json")
     when "javascript"
-      passed = system("mocha tests/javascript -R json 1> #{unique_id}results.json 2> #{unique_id}errors.txt")
+	    passed = system("mocha tests/javascript/test#{unique_id}.js -R json 1> #{unique_id}results.json 2> #{unique_id}errors.txt")
     when "cpp"
-      compiled = system("g++ tests/cpp/test#{unique_id}.cpp -std=c++11 -lgtest -pthread -o tests/cpp/test#{unique_id}.o 2> #{unique_id}errors.txt")
+      compiled = system("g++ tests/cpp/test#{unique_id}.cpp -std=c++17 -lgtest -pthread -o tests/cpp/test#{unique_id}.o 2> #{unique_id}errors.txt")
 
       if compiled 
         passed = system("./tests/cpp/test#{unique_id}.o --gtest_output='json:#{unique_id}results.json'")
