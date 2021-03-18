@@ -21,7 +21,7 @@ class SubsectionsController < ApplicationController
   def destroy
     subsection = Subsection.find(params[:id]) 
     subsection.destroy
-    render json: {section_id: subsection.section.id, id: subsection.id}
+    render json: {section_id: subsection.section_id, id: subsection.id}
   end
 
   private
